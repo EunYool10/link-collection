@@ -28,7 +28,19 @@
   .url { display:block; overflow:hidden; margin-top:5px; color:var(--muted); font-size:12px; text-overflow:ellipsis; white-space:nowrap; }
   .arrow { color:#969b94; font-size:18px; }
   footer { margin-top:28px; text-align:center; color:#92968f; font-size:11px; letter-spacing:.04em; }
-  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition:none !important; } }
+  .picker { width:min(calc(100% - 32px), 400px); max-width:none; padding:0; border:1px solid var(--line); border-radius:20px; background:var(--paper); color:var(--ink); box-shadow:0 24px 60px #1a241d24; }
+  .picker[open] { animation:picker-in .18s ease-out; }
+  .picker:focus { outline:none; }
+  .picker::backdrop { background:#20252259; }
+  .picker-body { padding:24px 18px 14px; }
+  .picker h2 { margin:0 4px; font-size:18px; font-weight:700; letter-spacing:-.035em; }
+  .picker p { margin:6px 4px 18px; color:var(--muted); font-size:13px; line-height:1.6; }
+  .picker-list { display:grid; gap:10px; }
+  .picker .card { min-height:66px; padding:13px 17px; }
+  .picker-close { display:block; width:100%; min-height:46px; margin-top:10px; border:0; border-radius:13px; background:transparent; color:var(--muted); font:inherit; font-size:14px; cursor:pointer; }
+  .picker-close:hover { background:#edece6; color:var(--ink); }
+  @keyframes picker-in { from { opacity:0; transform:translateY(6px) scale(.98); } to { opacity:1; transform:none; } }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition:none !important; animation:none !important; } }
 </style>
 </head>
 <body>
@@ -40,9 +52,13 @@
     <p class="intro">만들고 있는 것들과 소식을 모아두었어요.<br>아래 링크에서 만나보세요.</p>
   </header>
   <nav class="links" aria-label="주요 링크">
-    <a class="card" href="https://www.instagram.com/eunyool2/" target="_blank" rel="noopener noreferrer">
+    <a class="card" href="https://www.instagram.com/eunyool2010/" target="_blank" rel="noopener noreferrer" data-picker="pick-instagram" aria-haspopup="dialog">
       <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.7" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg></span>
-      <span class="copy"><span class="title">인스타그램</span><span class="url">instagram.com/eunyool2</span></span><span class="arrow" aria-hidden="true">↗</span>
+      <span class="copy"><span class="title">인스타그램</span><span class="url">@eunyool2010 · @eunyool2</span></span><span class="arrow" aria-hidden="true">↗</span>
+    </a>
+    <a class="card" href="https://discord.com/users/1318445526710095928" target="_blank" rel="noopener noreferrer" data-picker="pick-discord" aria-haspopup="dialog">
+      <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03ZM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418Zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418Z"/></svg></span>
+      <span class="copy"><span class="title">디스코드</span><span class="url">본계정 · 부계정</span></span><span class="arrow" aria-hidden="true">↗</span>
     </a>
     <a class="card" href="https://github.com/EunYool10" target="_blank" rel="noopener noreferrer">
       <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.08c-3.1.67-3.75-1.31-3.75-1.31-.5-1.27-1.24-1.61-1.24-1.61-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 .1.72 2.02 3.57 1.55.1-.72.39-1.21.7-1.49-2.47-.28-5.07-1.24-5.07-5.5 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.05 1.15a10.6 10.6 0 0 1 5.55 0c2.11-1.45 3.05-1.15 3.05-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.27-2.6 5.21-5.08 5.49.4.35.75 1.02.75 2.06v3.06c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/></svg></span>
@@ -55,6 +71,49 @@
   </nav>
   <footer>© 2026 EunYool</footer>
 </main>
+<dialog class="picker" id="pick-instagram" tabindex="-1" aria-labelledby="pick-instagram-title">
+  <div class="picker-body">
+    <h2 id="pick-instagram-title">인스타그램 계정 선택</h2>
+    <p>어느 계정으로 갈지 골라주세요.</p>
+    <div class="picker-list">
+      <a class="card" href="https://www.instagram.com/eunyool2010/" target="_blank" rel="noopener noreferrer">
+        <span class="copy"><span class="title">본계정</span><span class="url">instagram.com/eunyool2010</span></span><span class="arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="card" href="https://www.instagram.com/eunyool2/" target="_blank" rel="noopener noreferrer">
+        <span class="copy"><span class="title">부계정</span><span class="url">instagram.com/eunyool2</span></span><span class="arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
+    <button class="picker-close" type="button">닫기</button>
+  </div>
+</dialog>
+<dialog class="picker" id="pick-discord" tabindex="-1" aria-labelledby="pick-discord-title">
+  <div class="picker-body">
+    <h2 id="pick-discord-title">디스코드 계정 선택</h2>
+    <p>어느 계정으로 갈지 골라주세요.</p>
+    <div class="picker-list">
+      <a class="card" href="https://discord.com/users/1318445526710095928" target="_blank" rel="noopener noreferrer">
+        <span class="copy"><span class="title">본계정</span><span class="url">discord.com/users/1318445526710095928</span></span><span class="arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="card" href="https://discord.com/users/1131882190339330148" target="_blank" rel="noopener noreferrer">
+        <span class="copy"><span class="title">부계정</span><span class="url">discord.com/users/1131882190339330148</span></span><span class="arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
+    <button class="picker-close" type="button">닫기</button>
+  </div>
+</dialog>
+<script>
+  document.querySelectorAll('[data-picker]').forEach(function (card) {
+    var dialog = document.getElementById(card.dataset.picker);
+    if (!dialog || typeof dialog.showModal !== 'function') return;
+    card.addEventListener('click', function (e) { e.preventDefault(); dialog.showModal(); dialog.focus(); });
+  });
+  document.querySelectorAll('.picker').forEach(function (dialog) {
+    dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+    dialog.querySelectorAll('a, .picker-close').forEach(function (el) {
+      el.addEventListener('click', function () { dialog.close(); });
+    });
+  });
+</script>
 </body>
 </html>
 
