@@ -3,35 +3,55 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f7f6f2">
+<meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131614" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <title>은율이의 링크 모아보기</title>
+<meta name="description" content="EunYool의 인스타그램, 디스코드, 깃허브를 한곳에 모아두었어요.">
+<link rel="canonical" href="https://eunyool10.github.io/link-collection/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EunYool">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://eunyool10.github.io/link-collection/">
+<meta property="og:title" content="은율이의 링크 모아보기">
+<meta property="og:description" content="EunYool의 인스타그램, 디스코드, 깃허브를 한곳에 모아두었어요.">
+<meta property="og:image" content="https://eunyool10.github.io/link-collection/eunyool_profile.jpg">
+<meta property="og:image:width" content="256">
+<meta property="og:image:height" content="256">
+<meta property="og:image:alt" content="EunYool 프로필 사진">
+<meta name="twitter:card" content="summary">
 <style>
-  :root { color-scheme: light; --ink:#202522; --muted:#777d76; --line:#e8e8e1; --green:#315d4b; --paper:#f7f6f2; }
+  :root { color-scheme:light; --ink:#202522; --muted:#777d76; --faint:#92968f; --arrow:#969b94; --line:#e8e8e1; --line-hover:#cbd8ce; --green:#315d4b; --paper:#f7f6f2; --sheet:#f7f6f2; --card:#fff; --icon-bg:#f2f4ef; --avatar-bg:#e5ece5; --soft:#edece6; --shadow:#243b2b0b; --sheet-shadow:#1a241d24; --backdrop:#20252259; }
+  @media (prefers-color-scheme: dark) {
+    :root { color-scheme:dark; --ink:#e7eae6; --muted:#9ba29a; --faint:#737a72; --arrow:#7d847c; --line:#2b302c; --line-hover:#3f4d43; --green:#93c4aa; --paper:#131614; --sheet:#1a1d1b; --card:#1f2320; --icon-bg:#272d29; --avatar-bg:#272d29; --soft:#252a26; --shadow:#00000040; --sheet-shadow:#00000080; --backdrop:#000000a6; }
+  }
   * { box-sizing:border-box; }
-  body { margin:0; min-height:100vh; display:grid; place-items:center; padding:32px 20px; background:var(--paper); color:var(--ink); font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif; }
+  body { margin:0; min-height:100vh; display:grid; place-items:center; padding:32px 20px; background:var(--paper); color:var(--ink); word-break:keep-all; font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif; }
   main { width:min(100%, 480px); }
   .topline { display:flex; align-items:center; justify-content:center; gap:8px; color:var(--muted); font-size:14px; line-height:1.4; letter-spacing:.01em; }
   .top-icon { display:block; width:18px; height:18px; flex:none; border-radius:6px; }
   header { text-align:center; margin:36px 0 30px; }
-  .avatar { width:76px; height:76px; display:block; overflow:hidden; margin:0 auto 20px; border-radius:50%; background:#e5ece5; }
+  .avatar { width:76px; height:76px; display:block; overflow:hidden; margin:0 auto 20px; border-radius:50%; background:var(--avatar-bg); }
   .avatar img { display:block; width:100%; height:100%; object-fit:cover; }
   h1 { margin:0; font-size:32px; letter-spacing:-.055em; font-weight:750; }
   .intro { margin:10px 0 0; color:var(--muted); font-size:14px; line-height:1.7; }
   .links { display:grid; gap:12px; }
-  .card { display:flex; align-items:center; gap:15px; min-height:78px; padding:15px 17px; background:#fff; border:1px solid var(--line); border-radius:16px; color:inherit; text-decoration:none; transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease; }
-  .card:hover { transform:translateY(-2px); border-color:#cbd8ce; box-shadow:0 8px 24px #243b2b0b; }
-  .icon { width:43px; height:43px; display:grid; place-items:center; flex:none; border-radius:13px; background:#f2f4ef; color:var(--green); }
+  .card { display:flex; align-items:center; gap:15px; min-height:78px; padding:15px 17px; background:var(--card); border:1px solid var(--line); border-radius:16px; color:inherit; text-decoration:none; transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease; }
+  .card:hover { transform:translateY(-2px); border-color:var(--line-hover); box-shadow:0 8px 24px var(--shadow); }
+  .icon { width:43px; height:43px; display:grid; place-items:center; flex:none; border-radius:13px; background:var(--icon-bg); color:var(--green); }
   .icon svg { width:21px; height:21px; }
   .copy { flex:1; min-width:0; }
   .title { display:block; font-size:15px; font-weight:650; letter-spacing:-.02em; }
   .url { display:block; overflow:hidden; margin-top:5px; color:var(--muted); font-size:12px; text-overflow:ellipsis; white-space:nowrap; }
-  .arrow { color:#969b94; font-size:18px; }
-  footer { margin-top:28px; text-align:center; color:#92968f; font-size:11px; letter-spacing:.04em; }
-  .picker { width:min(calc(100% - 32px), 400px); max-width:none; padding:0; border:1px solid var(--line); border-radius:20px; background:var(--paper); color:var(--ink); box-shadow:0 24px 60px #1a241d24; }
+  .arrow { color:var(--arrow); font-size:18px; }
+  .page-copy { display:flex; align-items:center; justify-content:center; gap:8px; width:100%; min-height:48px; margin-top:14px; padding:0 16px; border:0; border-radius:13px; background:transparent; color:var(--muted); font:inherit; font-size:14px; cursor:pointer; }
+  .page-copy:hover { background:var(--soft); color:var(--ink); }
+  .page-copy svg { width:17px; height:17px; flex:none; }
+  footer { margin-top:18px; text-align:center; color:var(--faint); font-size:11px; letter-spacing:.04em; }
+  .picker { width:min(calc(100% - 32px), 400px); max-width:none; padding:0; border:1px solid var(--line); border-radius:20px; background:var(--sheet); color:var(--ink); box-shadow:0 24px 60px var(--sheet-shadow); }
   .picker[open] { animation:picker-in .18s ease-out; }
   .picker:focus { outline:none; }
-  .picker::backdrop { background:#20252259; }
+  .picker::backdrop { background:var(--backdrop); }
   .picker-body { padding:24px 18px 14px; }
   .picker h2 { margin:0 4px; font-size:18px; font-weight:700; letter-spacing:-.035em; }
   .picker p { margin:6px 4px 18px; color:var(--muted); font-size:13px; line-height:1.6; }
@@ -39,8 +59,12 @@
   .picker .card { min-height:66px; padding:12px 16px; gap:13px; }
   .picker .icon { width:38px; height:38px; border-radius:11px; }
   .picker .icon svg { width:19px; height:19px; }
+  .option { display:flex; gap:8px; }
+  .option .card { flex:1; min-width:0; }
+  .id-copy { flex:none; width:78px; padding:0 6px; border:1px solid var(--line); border-radius:16px; background:var(--card); color:var(--green); font:inherit; font-size:12px; font-weight:650; cursor:pointer; }
+  .id-copy:hover { border-color:var(--line-hover); }
   .picker-close { display:block; width:100%; min-height:46px; margin-top:10px; border:0; border-radius:13px; background:transparent; color:var(--muted); font:inherit; font-size:14px; cursor:pointer; }
-  .picker-close:hover { background:#edece6; color:var(--ink); }
+  .picker-close:hover { background:var(--soft); color:var(--ink); }
   @keyframes picker-in { from { opacity:0; transform:translateY(6px) scale(.98); } to { opacity:1; transform:none; } }
   @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition:none !important; animation:none !important; } }
 </style>
@@ -60,13 +84,14 @@
     </a>
     <a class="card" href="https://discord.com/users/1318445526710095928" target="_blank" rel="noopener noreferrer" data-picker="pick-discord" aria-haspopup="dialog">
       <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03ZM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418Zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418Z"/></svg></span>
-      <span class="copy"><span class="title">디스코드</span><span class="url">본계정 · 부계정</span></span><span class="arrow" aria-hidden="true">↗</span>
+      <span class="copy"><span class="title">디스코드</span><span class="url">eunyool10 · eunyool2010</span></span><span class="arrow" aria-hidden="true">↗</span>
     </a>
     <a class="card" href="https://github.com/EunYool10" target="_blank" rel="noopener noreferrer">
       <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.08c-3.1.67-3.75-1.31-3.75-1.31-.5-1.27-1.24-1.61-1.24-1.61-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 .1.72 2.02 3.57 1.55.1-.72.39-1.21.7-1.49-2.47-.28-5.07-1.24-5.07-5.5 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.05 1.15a10.6 10.6 0 0 1 5.55 0c2.11-1.45 3.05-1.15 3.05-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.27-2.6 5.21-5.08 5.49.4.35.75 1.02.75 2.06v3.06c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/></svg></span>
       <span class="copy"><span class="title">깃허브 프로젝트</span><span class="url">github.com/EunYool10</span></span><span class="arrow" aria-hidden="true">↗</span>
     </a>
   </nav>
+  <button class="page-copy" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="label" aria-live="polite">이 페이지 링크 복사</span></button>
   <footer>© 2026 EunYool</footer>
 </main>
 <dialog class="picker" id="pick-instagram" tabindex="-1" aria-labelledby="pick-instagram-title">
@@ -89,21 +114,65 @@
 <dialog class="picker" id="pick-discord" tabindex="-1" aria-labelledby="pick-discord-title">
   <div class="picker-body">
     <h2 id="pick-discord-title">디스코드 계정 선택</h2>
-    <p>어느 계정으로 갈지 골라주세요.</p>
+    <p>어느 계정으로 갈지 골라주세요. 프로필이 안 열리면 아이디를 복사해서 친구 추가해 주세요.</p>
     <div class="picker-list">
+      <div class="option">
       <a class="card" href="https://discord.com/users/1318445526710095928" target="_blank" rel="noopener noreferrer">
         <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03ZM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418Zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418Z"/></svg></span>
-        <span class="copy"><span class="title">본계정</span><span class="url">discord.com/users/1318445526710095928</span></span><span class="arrow" aria-hidden="true">↗</span>
+        <span class="copy"><span class="title">본계정</span><span class="url">eunyool10</span></span><span class="arrow" aria-hidden="true">↗</span>
       </a>
+      <button class="id-copy" type="button" data-copy="eunyool10" aria-label="본계정 디스코드 아이디 eunyool10 복사" hidden><span class="label" aria-live="polite">아이디 복사</span></button>
+      </div>
+      <div class="option">
       <a class="card" href="https://discord.com/users/1131882190339330148" target="_blank" rel="noopener noreferrer">
         <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03ZM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418Zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418Z"/></svg></span>
-        <span class="copy"><span class="title">부계정</span><span class="url">discord.com/users/1131882190339330148</span></span><span class="arrow" aria-hidden="true">↗</span>
+        <span class="copy"><span class="title">부계정</span><span class="url">eunyool2010</span></span><span class="arrow" aria-hidden="true">↗</span>
       </a>
+      <button class="id-copy" type="button" data-copy="eunyool2010" aria-label="부계정 디스코드 아이디 eunyool2010 복사" hidden><span class="label" aria-live="polite">아이디 복사</span></button>
+      </div>
     </div>
     <button class="picker-close" type="button">닫기</button>
   </div>
 </dialog>
 <script>
+  var PAGE_URL = 'https://eunyool10.github.io/link-collection/';
+  function copyText(text, host) {
+    function fallback() {
+      return new Promise(function (resolve, reject) {
+        var t = document.createElement('textarea');
+        t.value = text; t.setAttribute('readonly', '');
+        t.style.position = 'fixed'; t.style.top = '0'; t.style.opacity = '0';
+        host.appendChild(t); t.select();
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch (e) {}
+        t.remove();
+        if (ok) resolve(); else reject();
+      });
+    }
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text).catch(fallback);
+    return fallback();
+  }
+  function bindCopy(btn, text, doneMsg) {
+    var label = btn.querySelector('.label');
+    var original = label.textContent;
+    var timer;
+    btn.addEventListener('click', function () {
+      copyText(text, btn.closest('dialog') || document.body).then(function () {
+        label.textContent = doneMsg;
+      }, function () {
+        label.textContent = '복사 실패';
+      }).then(function () {
+        clearTimeout(timer);
+        timer = setTimeout(function () { label.textContent = original; }, 1600);
+      });
+    });
+  }
+  bindCopy(document.querySelector('.page-copy'), PAGE_URL, '링크를 복사했어요');
+  document.querySelectorAll('.id-copy').forEach(function (btn) {
+    if (!btn.dataset.copy) return;
+    btn.hidden = false;
+    bindCopy(btn, btn.dataset.copy, '복사했어요');
+  });
   document.querySelectorAll('[data-picker]').forEach(function (card) {
     var dialog = document.getElementById(card.dataset.picker);
     if (!dialog || typeof dialog.showModal !== 'function') return;
